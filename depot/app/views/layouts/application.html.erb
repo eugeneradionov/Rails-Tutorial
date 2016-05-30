@@ -15,6 +15,9 @@
     <div id="side">
       <div id="datetime">
         <%= DateTime.current.to_formatted_s(:long)%> UTC
+        <% if session[:counter] >5 %>
+            You have accessed this page <%= pluralize(session[:counter], 'time') %>
+        <% end %>
       </div>
       <ul>
         <li><a href="#">Home</a></li>
@@ -23,9 +26,10 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
-  </div>
-  <div id="main">
-    <%= yield %>
+
+    <div id="main">
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
