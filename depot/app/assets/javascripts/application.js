@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/effect-blind
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function(){
-    $("#side").height( $("#main").height() );
-});
+

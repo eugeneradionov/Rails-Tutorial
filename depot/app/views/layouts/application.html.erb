@@ -15,12 +15,14 @@
     <div id="side">
       <div id="datetime">
         <%= DateTime.current.to_formatted_s(:long)%> UTC
-        <% if session[:counter] >5 %>
-            You have accessed this page <%= pluralize(session[:counter], 'time') %>
-        <% end %>
       </div>
+      <% if @cart %>
+        <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+        <% end %>
+      <% end %>
       <ul>
-        <li><a href="#">Home</a></li>
+        <li><%=link_to 'Home', store_index_path%></li>
         <li><a href="#">Questions</a></li>
         <li><a href="#">News</a></li>
         <li><a href="#">Contact</a></li>
